@@ -23,7 +23,7 @@ public struct BoddyAlert: View {
 
     var confirmed: (Bool) -> Void
     
-    public init (title: String, message: String, secondMessage: String, secondGrayMessage: String, buttonTitle: String, twoButton: Bool, isPresented: Binding<Bool>, _ confirmed : @escaping (Bool) -> ()) {
+    public init (title: String, message: String, secondMessage: String, secondGrayMessage: String, buttonTitle: String, twoButton: Bool = true, isPresented: Binding<Bool>, _ confirmed : @escaping (Bool) -> ()) {
         self.title = title
         self.message = message
         self.secondMessage = secondMessage
@@ -94,7 +94,7 @@ public struct BoddyAlert: View {
             }
 
             Button(action: {
-                //confirmed(true)
+              confirmed(true)
                 isPresented = false
             }) {
                 
@@ -117,7 +117,7 @@ public struct BoddyAlert: View {
             
             if twoButtons {
                 Button(action: {
-                   // confirmed(false)
+                   confirmed(false)
                     isPresented = false
                 }) {
                     
