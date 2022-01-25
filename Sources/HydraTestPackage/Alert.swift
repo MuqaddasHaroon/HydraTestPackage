@@ -79,7 +79,7 @@ public struct BoddyAlert: View {
                 .fixedSize(horizontal: false, vertical: true)
                 .multilineTextAlignment(.center)
                 .font(.system(size: 15))
-                .foregroundColor(Color("gray_3"))
+                .foregroundColor(Color.gray.opacity(0.3))
                 .padding(.horizontal, 20)
                 .padding(.bottom, 30)
             }
@@ -123,7 +123,7 @@ public struct BoddyAlert: View {
                     
                     HStack {
                         Text("Maybe later")
-                            .foregroundColor(Color("gray_1"))
+                            .foregroundColor(Color.gray)
                     }
                     .padding(.horizontal)
                     .padding(.bottom)
