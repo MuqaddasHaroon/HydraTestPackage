@@ -35,7 +35,8 @@ public struct BoddyAlert: View {
   
     }
     public var body: some View {
-        
+        ZStack {
+            Color.black.opacity(0.2)
         VStack {
             
             HStack {
@@ -133,6 +134,8 @@ public struct BoddyAlert: View {
         .padding(.bottom)
         .frame(width: UIScreen.main.bounds.width - 80)
         .background(Color.white.cornerRadius(24))
+            
+        }
         
     }
 }
