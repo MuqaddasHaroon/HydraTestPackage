@@ -25,10 +25,13 @@ public struct EmailValidator {
     
     /// The function is used to check if the password is valid or not. If there is one upper case letter, one lower case, less than 8 characters and if a special character is involved or not.
     /// - Parameter pass: password in string format is required.
+    /// - Parameter charLimit: limit that a password should not be less than that
     /// - Returns: value will be in a form of Bool. False indicates that password is invalid.
-    func passwordIsValid(_ pass: String) -> Bool {
+    func passwordIsValid(_ pass: String, charLimit: Int = 8) -> Bool {
         @State var password = pass
-        let password2 = NSPredicate(format: "SELF MATCHES %@ ", "^(?=.*[a-z])(?=.*[0-9])(?=.*[A-Z]).{8,}$")
+        @State var characterLimit = charLimit
+    
+        let password2 = NSPredicate(format: "SELF MATCHES %@ ", "^(?=.*[a-z])(?=.*[0-9])(?=.*[A-Z]).{\(charLimit),}$")
         let check = password2.evaluate(with: password)
         let specialChar = CharacterSet(charactersIn: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789")
         

@@ -25,6 +25,7 @@ public struct ProgressLoaderLinear: View {
         self.widthPg = width
         self.heightPg = height
     }
+    
     public var body: some View {
         ProgressView(value: value, total: totalProgressValue)
             .frame(width: widthPg, height: heightPg)

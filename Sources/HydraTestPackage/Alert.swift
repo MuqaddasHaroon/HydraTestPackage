@@ -12,18 +12,19 @@ import SwiftUI
 public struct BoddyAlert: View {
     
     var title: String
-    
     var message: String
     var secondGrayMessage : String
     var secondMessage : String
     var buttonTitle : String
     var twoButtons : Bool
+    var color: Color
     
     @Binding var isPresented: Bool
 
     var confirmed: (Bool) -> Void
     
-    public init (title: String, message: String, secondMessage: String, secondGrayMessage: String, buttonTitle: String, twoButton: Bool = true, isPresented: Binding<Bool>, _ confirmed : @escaping (Bool) -> ()) {
+ 
+    public init (title: String, message: String, secondMessage: String, secondGrayMessage: String, buttonTitle: String, twoButton: Bool = true, isPresented: Binding<Bool>, _ confirmed : @escaping (Bool) -> (), color: Color) {
         self.title = title
         self.message = message
         self.secondMessage = secondMessage
@@ -32,8 +33,10 @@ public struct BoddyAlert: View {
         self.twoButtons = twoButton
         self._isPresented = isPresented
         self.confirmed = confirmed
-  
+        self.color = color
+        
     }
+    
     public var body: some View {
         ZStack {
             Color.black.opacity(0.2)
@@ -110,7 +113,7 @@ public struct BoddyAlert: View {
                     
                 }
                 .padding()
-                .background(Color.blue.cornerRadius(6))
+                .background(color.cornerRadius(6))
                 .padding(.horizontal)
                 .padding(.bottom)
             }
